@@ -42,18 +42,42 @@ table {
 }
 /* ^^^^ RESET ^^^^ */
 body {
-  display: flex;
-  justify-content: center;
-  background-color: #ccc;
+	background-color: #bbb;
+}
+.spacer {
+	margin: .5em 0;
+	height: 40px;
+}
+.App-message {
+	text-align: center;
+	font-size: 1.5em;
+	font-weight: normal;
+	transition: all;
 }
 
-.main {
-  text-align: center;
-  height: 100vh;
-  min-width: 600px;
+.App-message.needItem {
+	background-color: yellow;
+}
+
+.App-message.needCalories {
+	background-color: orange;
+}
+
+.App-message.deleted {
+	background-color: red;
+}
+
+.App-message.edited {
+	color: white;
+	background-color: #444;
+}
+.content {
+	margin: 0 auto;
+	max-width: 1000px;
 }
 
 .header {
+	margin-top: 1em;
 	height: 60px;
 	display: flex;
 	flex-direction: column;
@@ -91,20 +115,21 @@ ul {
 	width: 100%;
 	padding: .5em;
 }
+.item-info div {
+	width: 50%;
+	align-self: flex-start;
+	padding: .5em;
+	text-align: left;
+}
 
 li:nth-child(2n+3) {
     background-color: #ddd;   
 }
 
-
 .item-header {
-
 	background-color: #ccc;
 }
-
-
 .item-form {
-
 	margin: 0 auto;
 	border-radius: 0px 0px 4px 4px;
 	padding: .5em;
@@ -116,6 +141,7 @@ input {
 	padding: .9em;
 	border-radius: 4px;
 	margin: .3em 0;
+	border: none;
 
 }
 input::placeholder {
@@ -135,5 +161,5 @@ button {
 .button-set {
 	display: flex;
 	justify-content: space-around;
-	width: 100%;
+	width: 50%;
 }

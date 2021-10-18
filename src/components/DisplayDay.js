@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 
-const DisplayDay = ( {items, setItems} ) => {
+const DisplayDay = ( {items, setItems, setFlashMessage} ) => {
     const [edit, setEdit] = useState(null);
     const [editingText, setEditingText] = useState("");
     const [editingCal, setEditingCal] = useState("");
@@ -9,25 +9,31 @@ const DisplayDay = ( {items, setItems} ) => {
     const deleteItem = (id) => {
         let curItems = [...items].filter((item) => item.id !== id);
         setItems(curItems);
+        setFlashMessage(`deleted`);
     }
 
-    const editItem = (id) => {
+    function updateItem(id) {
+        const updatedItem = [...items].map((item) => {
+            if (item.id === id) {
+                item.item = editingText;
+                item.cal = editingCal;
+            }
+            return item;
+        });
+        setItems(updatedItem);
+        setEditingCal('');
+        setEditingText('');
+        setFlashMessage(`edited`);
+        setEdit(null);
+    }
+
+    const editItem = (id, item) => {
         if (editingText === '' ) {
-            alert('Please enter a item');
+            setFlashMessage(`needItem`);
         } else if (editingCal === '' || isNaN(editingCal)) {
-            alert('Please enter calories');
+            setFlashMessage(`needCalories`);
         } else {
-            const updatedItem = [...items].map((item) => {
-                if (item.id === id) {
-                    item.item = editingText;
-                    item.cal = editingCal;
-                }
-                return item;
-            });
-            setItems(updatedItem);
-            setEditingCal('');
-            setEditingText('');
-            setEdit(null);
+            updateItem(id);
         };
     }
 
@@ -55,7 +61,7 @@ const DisplayDay = ( {items, setItems} ) => {
                 
                 {item.id === edit ? (
                     <div className='button-set'>
-                        <button  onClick={() => editItem(item.id, item.cal)}>Submit</button>
+                        <button  onClick={() => editItem(item.id, item.item)}>Submit</button>
                         <button onClick={() => setEdit(null)}>Cancel</button>
                     </div>
                 ) : ( 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const AddItem = ( { items, setItems }) => {
+const AddItem = ( { items, setItems, setFlashMessage }) => {
     const[ item, setItem ] = useState('');
     const[ cal, setCal] = useState('');
 
@@ -19,8 +19,10 @@ const AddItem = ( { items, setItems }) => {
             setItems([newItem, ...items]);
             setCal('');
             setItem('');
+        } else if (item === '') {
+            setFlashMessage(`needItem`)
         } else {
-            alert('Please enter a number for calories')
+            setFlashMessage(`needCalories`);
         }
 
     }
