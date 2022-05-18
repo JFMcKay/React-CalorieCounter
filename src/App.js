@@ -43,9 +43,6 @@ function App() {
         {/* Message alerts for errors or attention */}
           <div className="spacer">{message && <Message type={message} />}</div>
           <div className="content">
-            {/* Thinking about adding a button to open the additem but running out of time.  Will implement for portfolio         
-            <div className='add-icon'><i onClick={() => setShowAdd(true)}  className={showAdd ?  '' : 'fas fa-bars' }></i></div>
-            {showAdd &&  */}
             <AddItem
               setItems={setItems}
               items={items}
