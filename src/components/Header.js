@@ -12,11 +12,9 @@ function Header( {items} ) {
         setTotal(calTotal);
     }, [items])
     
-    
-
     return (
         <div className="header">
-            <h1>Count those calories!</h1>
+            <h1>Calorie Counter</h1>
             <h2> Total Calories: {total}</h2>
         </div>
     )

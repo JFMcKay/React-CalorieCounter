@@ -5,7 +5,7 @@ const Message = ({ type }) => {
     needItem: "Please enter an Item",
     needCalories: "Please enter a number for calories!",
     deleted: "Post has been deleted.",
-    edited: "Post has been edited"
+    edited: "Post has been edited",
   };
   return (
     <div className={`App-message ${type}`}>

@@ -23,7 +23,9 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
+	background-color: #aaa;
 	line-height: 1.4;
+	position: relative;
 }
 ol, ul {
 	list-style: none;
@@ -41,13 +43,33 @@ table {
 	border-spacing: 0;
 }
 /* ^^^^ RESET ^^^^ */
-body {
-	background-color: #bbb;
+main {
+	margin: 0;
+	border-radius: 15px;
+	background-color: #fffedd;
+	width: 70vw;
+	height: 50vh;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, 50%);
 }
 .spacer {
 	margin: .5em 0;
 	height: 40px;
 }
+.background {
+	border-radius: 15px 15px 0 0;
+	background-image: url('./images/bg-veggies.jpg');
+	background-position: center;
+	background-size: cover;
+}
+.add-icon {
+	padding: .5em;
+	text-align: right;
+	font-size: 3em;
+}
+
 .App-message {
 	text-align: center;
 	font-size: 1.5em;
@@ -75,11 +97,10 @@ body {
 	margin: 0 auto;
 	max-width: 1000px;
 }
-
 .header {
-	margin-top: 1em;
 	height: 60px;
 	display: flex;
+	color: #fff;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
@@ -90,7 +111,6 @@ body {
 	font-size: 2em;
 }
 ul {
-	padding: .5em;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -107,6 +127,7 @@ ul {
 }
 .item-button {
 	width: 100%;
+
 }
 
 .item-info {
@@ -151,15 +172,44 @@ input::placeholder {
 button {
 	width: 70px;
 	padding: 1em;
+	margin: .5em 0;
 	color: #fff;
 	border: none;
 	border-radius: 4px;
 	background-color: #1e5631;
 	cursor: pointer;
 }
-
+.edit-input {
+	border: 1px solid #ccc;
+	width: 44%;
+}
 .button-set {
 	display: flex;
 	justify-content: space-around;
 	width: 50%;
 }
+
+@media only screen and (max-width: 700px) {
+
+	ul {
+		padding: 0;
+	}
+	.item{
+		flex-direction: column;
+	}
+	.item-info {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 0;
+	}
+
+	.button-set {
+		width: 100%;
+		padding: .5em;
+		background-color: #ccc;
+	}
+	.edit-input {
+		width: 90%;
+	}
+  }
